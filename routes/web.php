@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::post('/pash','Github\GithubController@pash');
+//登陆
+Route::post('/login','Github\GithubController@login');
+//注册
+Route::post('/login/reg','Github\GithubController@reg');
