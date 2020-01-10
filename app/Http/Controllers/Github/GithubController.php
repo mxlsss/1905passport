@@ -11,7 +11,7 @@ class GithubController extends Controller
 {
    public function pash(){
 
-        $pash= 'cd /wwwroot/1905passport && git pull';
+        $pash= 'cd /www/1905passport && git pull';
        shell_exec($pash);
 
    }
