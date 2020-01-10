@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Github;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\UserModel;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Str;
 class GithubController extends Controller
 {
@@ -59,6 +60,9 @@ class GithubController extends Controller
                         'token' => $token
                     ]
                 ];
+                $keys='1905passport';
+                Redis::set($keys,$token);
+                Redis::expire($keys, 3600);
             }else{
                 $response = [
                     'errno' => 400003,
