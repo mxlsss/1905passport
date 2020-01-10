@@ -36,7 +36,7 @@ class GithubController extends Controller
 
         $aaa=UserModel::insertGetId($data);
         if($aaa){
-            echo "注册成功en";
+            echo "注册成功";
         }
     }
 
