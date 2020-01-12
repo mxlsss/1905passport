@@ -20,3 +20,5 @@ Route::get('/pash','Github\GithubController@pash');
 Route::post('/login','Github\GithubController@login');
 //注册
 Route::post('/login/reg','Github\GithubController@reg');
+//查询
+Route::get('/login/onelist','Github\GithubController@onelist');
