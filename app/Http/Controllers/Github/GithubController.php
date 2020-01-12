@@ -46,7 +46,7 @@ class GithubController extends Controller
 
     public function login(Request $request){
         $data = $request->input();
-//        dd($data);
+        dd($data);
         $password = $request->input('password');
         if(strpos($data['account'],'@')){
             $where=['email'=>$data['account']];
