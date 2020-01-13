@@ -18,12 +18,12 @@ class GithubController extends Controller
 
    public function onelist(){
         $token=$_SERVER['HTTP_TOKEN'];
-
    }
 
     public function reg(Request $request){
+//        echo "123";die;
         $password2 = $request->input('password2');
-
+//           echo $password2;die;
         if($request->input('password')!=$password2){
             echo "两次密码不一致";die;
         };
@@ -32,16 +32,20 @@ class GithubController extends Controller
             'name'=> $request->input('name') ,
             'email'=> $request->input('email') ,
             'tel'=> $request->input('tel') ,
+            'appid'=> $request->input('appid') ,
             'password'=>  password_hash($request->input('password'),PASSWORD_BCRYPT),
             'last_login'    => time(),
             'last_ip'       => $_SERVER['REMOTE_ADDR'],     //获取远程IP
         ];
-        echo '<pre>';print_r($data);echo'</pre>';
-
         $aaa=UserModel::insertGetId($data);
         if($aaa){
-            echo "注册成功";
+            $response = [
+                'errno' => 400000,
+                'msg'   => '注册成功'
+            ];
         }
+        return $response;
+
     }
 
     public function login(Request $request){
