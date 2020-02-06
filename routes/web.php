@@ -30,3 +30,6 @@ Route::post('/getuserinfo','Github\GithubController@getuserinfo');
 Route::post('/login/reg','Github\GithubController@reg');
 //查询
 Route::get('/login/onelist','Github\GithubController@onelist');
+
+//验签
+Route::get('/yq','Github\GithubController@yq');

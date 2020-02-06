@@ -158,4 +158,30 @@ use Illuminate\Support\Str;
             return $response;
         }
 
+        //验签
+        public function yq(){
+
+        echo '<pre>';print_r($_GET);echo '</pre>';
+
+        $key = "mxl";          // 计算签名的KEY 与发送端保持一致
+
+        //验签
+        $data = $_GET['data'];  //接收到的数据
+        $signature = $_GET['signature'];    //发送端的签名
+
+        // 计算签名
+        echo "接收到的签名：". $signature;echo '</br>';
+        $s = md5($data.$key);
+        echo '接收端计算的签名：'. $s;echo '</br>';
+
+        //与接收到的签名 比对
+        if($s == $signature)
+        {
+            echo "验签成功";
+        }else{
+            echo "验签失败";
+        }
+
+        }
+
     }
