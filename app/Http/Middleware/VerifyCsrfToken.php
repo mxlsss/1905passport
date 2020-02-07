@@ -23,6 +23,6 @@ class VerifyCsrfToken extends Middleware
         '/login',
         '/login/*',
         '/auth',
-        'yq',
+        'yq2',
     ];
 }
