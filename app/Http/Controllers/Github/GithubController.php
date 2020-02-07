@@ -207,4 +207,15 @@ use Illuminate\Support\Str;
             }
         }
 
+        //公钥私钥 解密
+        public function jiemi(){
+            $data=$_GET['data'];
+            echo '<pre>原值:';print_r($data);echo'</pre>';
+            $ent_data=base64_decode($data);
+            echo '<pre>ba64和url解码码后';print_r($ent_data);echo'</pre>';
+            $key=file_get_contents(storage_path('keys/pub.key'));
+            openssl_public_decrypt($ent_data,$data,$key);
+            echo '<pre>';print_r("解密后原文:".$data);echo'</pre>';
+        }
+
     }

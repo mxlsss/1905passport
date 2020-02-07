@@ -35,3 +35,5 @@ Route::get('/login/onelist','Github\GithubController@onelist');
 Route::get('/yq','Github\GithubController@yq');
 //验签
 Route::post('/yq2','Github\GithubController@yq2');
+//公钥私钥解密
+Route::get('/jiemi','Github\GithubController@jiemi');
