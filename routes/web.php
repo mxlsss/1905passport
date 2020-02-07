@@ -33,3 +33,5 @@ Route::get('/login/onelist','Github\GithubController@onelist');
 
 //验签
 Route::get('/yq','Github\GithubController@yq');
+//验签
+Route::post('/yq2','Github\GithubController@yq2');
