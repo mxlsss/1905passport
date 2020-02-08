@@ -218,4 +218,22 @@ use Illuminate\Support\Str;
             echo '<pre>';print_r("解密后原文:".$data);echo'</pre>';
         }
 
+
+        //对称解密
+        public  function jiemi2(){
+            $data=$_GET['data'];
+            echo '<pre>base64解密前:';print_r($data);echo'</pre>';
+            $data=base64_decode($data);
+            echo '<pre>aes解密前';print_r($data);echo'</pre>';
+            $method='AES-256-CBC';
+            $key='1905';
+            $iv='qqqwerdhryfjguth';
+
+            $ent_data=openssl_decrypt($data,$method,$key,OPENSSL_RAW_DATA,$iv);
+
+            $json_data=json_decode($ent_data);
+            echo '<pre>解密:';print_r($json_data);echo'</pre>';
+        }
+
+
     }

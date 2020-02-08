@@ -37,3 +37,6 @@ Route::get('/yq','Github\GithubController@yq');
 Route::post('/yq2','Github\GithubController@yq2');
 //公钥私钥解密
 Route::get('/jiemi','Github\GithubController@jiemi');
+//对称解密
+Route::get('/jiemi2','Github\GithubController@jiemi2');
+
